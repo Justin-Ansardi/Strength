@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Strength_MVC.Controllers.UserWorkoutBoutViewModel>
+
+@{
+    ViewData["Title"] = "User Workouts and Bouts";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Workout Name</th>
+            <th>Exercise</th>
+            <th>Set/Reps</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+
+        {
+
+            foreach (var workout in user.Workouts)
+
+            {
+
+                if (workout.Bouts != null && workout.Bouts.Count > 0)
+
+                {
+
+                    foreach (var bout in workout.Bouts)
+
+                    {
+                        <tr>
+                            @if (workout.Bouts.First() == bout)
+
+                            {
+                                <td rowspan="@workout.Bouts.Count">@user.UserName</td>
+                                <td rowspan="@workout.Bouts.Count">@workout.WorkoutName</td>
+                            }
+                            <td>@bout.Exercise</td>
+                            <td>
+                                <ul>
+                                    @foreach (var set in bout.SetReps ?? new List<int>())
+
+                                    {
+                                        <li>@set</li>
+                                    }
+                                </ul>
+                            </td>
+                        </tr>
+                    }
+
+                }
+
+                else
+
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@workout.WorkoutName</td>
+                        <td colspan="2">No Bouts Available</td>
+                    </tr>
+                }
+
+            }
+
+        }
+    </tbody>
+</table>
