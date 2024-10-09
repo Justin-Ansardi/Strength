@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Strength_MVC", "Strength_MVC\Strength_MVC.csproj", "{DF746025-CAB7-45DF-A4A1-8C765235C989}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrengthEFcore", "..\StrengthEFcore\StrengthEFcore\StrengthEFcore.csproj", "{EDC29946-BA74-4638-BDE9-1413C551D9BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DF746025-CAB7-45DF-A4A1-8C765235C989}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF746025-CAB7-45DF-A4A1-8C765235C989}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF746025-CAB7-45DF-A4A1-8C765235C989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC29946-BA74-4638-BDE9-1413C551D9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC29946-BA74-4638-BDE9-1413C551D9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC29946-BA74-4638-BDE9-1413C551D9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC29946-BA74-4638-BDE9-1413C551D9BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
