@@ -1,7 +1,11 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using StrengthEFcore;
+using StrengthEFcore.DataAcessFunctions;
 using System;
+using System.ComponentModel;
+
 
 class Program
 {
@@ -11,11 +15,30 @@ class Program
 
         using (var context = new EntityContext(optionsBuilder.Options))
         {
-            var result = StrengthEFcore.DataAcessFunctions.DAF.GetAllUsers(context).ToList();
+            var result = DAF.GetUserWorkoutData(context, 34).ToList();
 
-            foreach(var u in result)
+
+            var data = result.Select(x => x.ExerciseBouts.ToList()).ToList();
+            foreach(var w in data)
             {
-                Console.WriteLine(u.Name);
+                DisplayWorkoutDataToConsole(w);
+            }
+
+        }
+    }
+
+    public static void DisplayWorkoutDataToConsole(List<ExerciseBout> bouts)
+    {
+
+        var index = 1;
+        foreach (var b in bouts)
+        {
+
+            Console.WriteLine(b.Exercise);
+            foreach (var s in b.SetReps)
+            {
+                Console.WriteLine($"Set: {index} Reps: {s} ");
+                index++;
             }
         }
     }

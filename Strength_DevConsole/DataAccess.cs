@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Strength_DevConsole
 {
+
+ 
     internal class DataAccess
     {
+
 
     }
 }
