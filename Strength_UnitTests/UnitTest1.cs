@@ -11,12 +11,12 @@ namespace Strength_UnitTests
             _entityContext = entityContext;
         }
 
+
+         // instead of real context, we may need a stub because I/O is not pure
         [Fact]
         public void GetAllBouts()
         {
-            var allBouts = _entityContext.ExerciseBout.Select(x => x).ToArray();
-
-            }
+          
         }
     }
 }
