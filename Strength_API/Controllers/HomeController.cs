@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using StrengthEFcore;
+using StrengthEFcore.DataAcessFunctions;
 
 namespace Strength_API.Controllers
 {
@@ -16,18 +18,22 @@ namespace Strength_API.Controllers
         }
 
         [HttpGet(Name = "GetAllWorkoutsForUser")]
-        //public IEnumerable<Workout> GetAllWorkoutsForUser(int userId)
-        //{
-        //    var workouts = _entityContext.Workout.Select(x => x).ToList();
-        //    var bouts = _entityContext.ExerciseBout.Select(x => x).Where(x => workouts.Any(x.WorkoutId) == true);
-        //    }
 
+        public string GetAllWorkoutsForUser(int userId)
+        {
+            var query =   DAF.GetUserWorkoutData(_entityContext, userId).ToList();
+            //var output = JsonConvert.SerializeObject(query.Select(x => x.ExerciseBouts.Select(y => y.SetReps)));
+            var output = JsonConvert.SerializeObject(query);
+            return output;
 
-        public IEnumerable<Workout> GetAllWorkoutsForUser(int userId) =>
-        _entityContext.Workout.Select(x => x).Include(x => x.ExerciseBouts).Where(x => x.UserId == userId).ToList();
+        }
 
-
-
+       
 
     }
+
+    //public static record WorkoutDTO
+    //{
+
+    //}
 }
