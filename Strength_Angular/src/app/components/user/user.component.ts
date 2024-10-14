@@ -12,12 +12,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit {
-  data$!: Observable<any>;
+  data$!: Observable<any[]>;
   constructor(private apiService: ApiService) { }
 
 
   ngOnInit(): void {
-    this.data$ = this.apiService.getData().pipe(take(1));
+    this.data$ = this.apiService.getData();
   }
 }
 

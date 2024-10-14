@@ -1,7 +1,11 @@
 <div *ngIf="data$ | async as data">
     <ul>
-        <li *ngFor="let item of data | keyvalue">
-            {{ item.key }} - {{ item.value }}
+        <li *ngFor="let item of data">
+            Id: {{ item.Id }}
+            <br>
+            Name: {{ item.Name }}
+            <br>
+            Workouts: {{ item.Workouts ? item.Workouts : 'No workouts available' }}
         </li>
     </ul>
 </div>

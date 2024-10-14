@@ -12,8 +12,9 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
     getData(): Observable<any> {
-        return this.http.get(`${this.baseUrl}`); // Example API endpoint
+        return this.http.get<any[]>(`${this.baseUrl}`); // Example API endpoint
     }
+
 
     postData(payload: any): Observable<any> {
         return this.http.post(`${this.baseUrl}`, payload); // Example API endpoint

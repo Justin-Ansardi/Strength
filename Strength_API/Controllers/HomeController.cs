@@ -34,9 +34,8 @@ namespace Strength_API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public string GetAllUsers()
         {
-            var result = DAF.GetAllUsers(_entityContext).ToList().FirstOrDefault(); //for testing
-            //var test = JsonConvert.SerializeObject(result);
-            //return test;
+            var result = DAF.GetAllUsers(_entityContext).ToList();
+
             return JsonConvert.SerializeObject(result);
         }
 
