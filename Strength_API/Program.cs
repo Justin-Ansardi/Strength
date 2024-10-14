@@ -11,10 +11,7 @@ builder.Services.AddCors(options =>
                 cfg.AllowAnyOrigin();
                 cfg.AllowAnyHeader();
                 cfg.AllowAnyMethod();
-            }
-
-                                        ));  
-// for local dev only, this will need to be restructured
+            })); // for local dev only, this will need to be restructured
 builder.Services.AddDbContext<EntityContext>(options =>
     options.UseSqlServer());
 builder.Services.AddControllers();
