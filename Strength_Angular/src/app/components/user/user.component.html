@@ -1,0 +1,7 @@
+<div *ngIf="data$ | async as data">
+    <ul>
+        <li *ngFor="let item of data | keyvalue">
+            {{ item.key }} - {{ item.value }}
+        </li>
+    </ul>
+</div>

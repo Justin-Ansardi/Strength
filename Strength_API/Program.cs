@@ -1,9 +1,20 @@
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using StrengthEFcore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors(options =>
+            options.AddDefaultPolicy(cfg =>
+            {
+                cfg.AllowAnyOrigin();
+                cfg.AllowAnyHeader();
+                cfg.AllowAnyMethod();
+            }
+
+                                        ));  
+// for local dev only, this will need to be restructured
 builder.Services.AddDbContext<EntityContext>(options =>
     options.UseSqlServer());
 builder.Services.AddControllers();
@@ -21,7 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();

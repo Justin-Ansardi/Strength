@@ -20,14 +20,26 @@ namespace Strength_API.Controllers
             _entityContext = entityContext;
         }
 
-        [HttpGet(Name = "GetAllWorkoutsForUser")]
+        //[HttpGet(Name = "GetAllWorkoutsForUser")]
+        //public string GetAllWorkoutsForUser(int userId)
+        //{
+        //    var result = DAF.GetUserWorkoutData(_entityContext, userId).ToList();
 
-        public string GetAllWorkoutsForUser(int userId)
+        //    return JsonConvert.SerializeObject(result);
+        //}
+
+
+
+        [HttpGet(Name = "GetAllUsers")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public string GetAllUsers()
         {
-            var result = DAF.GetUserWorkoutData(_entityContext, userId).ToList();
-
+            var result = DAF.GetAllUsers(_entityContext).ToList().FirstOrDefault(); //for testing
+            //var test = JsonConvert.SerializeObject(result);
+            //return test;
             return JsonConvert.SerializeObject(result);
         }
+
 
 
         [HttpPost(Name = "CreateNewUser")]
